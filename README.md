@@ -1,1 +1,964 @@
 # biltwellhomes
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biltwell Home Improvement Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+–white: #FFFFFF;
+–off-white: #F8F7F5;
+–light: #EFEFED;
+–mid: #B8B4AE;
+–dark: #1A1A18;
+–charcoal: #2E2E2B;
+–accent: #3D5A47;
+–accent-light: #EAF0EC;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Jost’, sans-serif;
+font-weight: 300;
+background: var(–white);
+color: var(–dark);
+overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 24px 60px;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid var(–light);
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–dark);
+text-decoration: none;
+}
+
+.nav-logo span {
+color: var(–accent);
+}
+
+.nav-links {
+display: flex;
+gap: 40px;
+list-style: none;
+}
+
+.nav-links a {
+font-family: ‘Jost’, sans-serif;
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–charcoal);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(–accent); }
+
+.nav-cta {
+font-family: ‘Jost’, sans-serif;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–white);
+background: var(–dark);
+padding: 12px 28px;
+text-decoration: none;
+transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(–accent); }
+
+/* ── HERO ── */
+#home {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding-top: 80px;
+}
+
+.hero-left {
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 80px 60px 80px 60px;
+}
+
+.hero-eyebrow {
+font-size: 11px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–accent);
+margin-bottom: 28px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.hero-eyebrow::before {
+content: ‘’;
+display: block;
+width: 32px;
+height: 1px;
+background: var(–accent);
+}
+
+.hero-h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(48px, 5vw, 72px);
+font-weight: 300;
+line-height: 1.1;
+color: var(–dark);
+margin-bottom: 28px;
+}
+
+.hero-h1 em {
+font-style: italic;
+color: var(–accent);
+}
+
+.hero-sub {
+font-size: 15px;
+font-weight: 300;
+line-height: 1.8;
+color: var(–charcoal);
+max-width: 420px;
+margin-bottom: 48px;
+}
+
+.hero-actions {
+display: flex;
+gap: 16px;
+align-items: center;
+}
+
+.btn-primary {
+display: inline-block;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–white);
+background: var(–dark);
+padding: 16px 36px;
+text-decoration: none;
+transition: background 0.25s;
+}
+
+.btn-primary:hover { background: var(–accent); }
+
+.btn-ghost {
+display: inline-block;
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–dark);
+text-decoration: none;
+border-bottom: 1px solid var(–mid);
+padding-bottom: 2px;
+transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover { color: var(–accent); border-color: var(–accent); }
+
+.hero-right {
+background: var(–off-white);
+position: relative;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.hero-right-inner {
+width: 100%;
+height: 100%;
+background:
+linear-gradient(135deg, #e8e4de 0%, #d4cfc8 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.hero-placeholder {
+text-align: center;
+}
+
+.hero-placeholder p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–mid);
+}
+
+/* geometric accent */
+.geo {
+position: absolute;
+border: 1px solid rgba(0,0,0,0.08);
+}
+.geo-1 { width: 200px; height: 200px; top: 15%; right: 10%; }
+.geo-2 { width: 120px; height: 120px; bottom: 20%; left: 15%; }
+
+.hero-stats {
+display: flex;
+gap: 40px;
+margin-top: 60px;
+padding-top: 40px;
+border-top: 1px solid var(–light);
+}
+
+.stat-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+font-weight: 300;
+color: var(–dark);
+line-height: 1;
+}
+
+.stat-label {
+font-size: 11px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–mid);
+margin-top: 6px;
+}
+
+/* ── SERVICES ── */
+#services {
+padding: 120px 60px;
+background: var(–white);
+}
+
+.section-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+margin-bottom: 72px;
+}
+
+.section-eyebrow {
+font-size: 11px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–accent);
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.section-eyebrow::before {
+content: ‘’;
+display: block;
+width: 24px;
+height: 1px;
+background: var(–accent);
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(36px, 3.5vw, 52px);
+font-weight: 300;
+line-height: 1.15;
+color: var(–dark);
+}
+
+.section-title em { font-style: italic; color: var(–accent); }
+
+.services-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+}
+
+.service-card {
+background: var(–off-white);
+padding: 48px 36px;
+position: relative;
+overflow: hidden;
+transition: background 0.3s;
+}
+
+.service-card:hover { background: var(–accent-light); }
+
+.service-card::after {
+content: ‘’;
+position: absolute;
+bottom: 0; left: 0;
+width: 0; height: 2px;
+background: var(–accent);
+transition: width 0.3s;
+}
+
+.service-card:hover::after { width: 100%; }
+
+.service-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 48px;
+font-weight: 300;
+color: var(–light);
+line-height: 1;
+margin-bottom: 24px;
+}
+
+.service-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 24px;
+font-weight: 400;
+color: var(–dark);
+margin-bottom: 16px;
+}
+
+.service-desc {
+font-size: 13px;
+font-weight: 300;
+line-height: 1.8;
+color: #666;
+}
+
+/* ── ABOUT ── */
+#about {
+padding: 120px 60px;
+background: var(–dark);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+
+.about-visual {
+position: relative;
+height: 500px;
+background: var(–charcoal);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.about-visual-inner {
+position: relative;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, #2a2a27 0%, #1a1a18 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.about-visual p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.2);
+}
+
+.about-badge {
+position: absolute;
+bottom: -20px;
+right: -20px;
+width: 120px;
+height: 120px;
+background: var(–accent);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.about-badge-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+font-weight: 300;
+color: #fff;
+line-height: 1;
+}
+
+.about-badge-text {
+font-size: 9px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.8);
+margin-top: 4px;
+}
+
+.about-content .section-eyebrow { color: var(–accent); }
+.about-content .section-eyebrow::before { background: var(–accent); }
+
+.about-content .section-title { color: var(–white); }
+
+.about-content p {
+font-size: 15px;
+font-weight: 300;
+line-height: 1.9;
+color: rgba(255,255,255,0.6);
+margin-top: 24px;
+}
+
+.about-values {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-top: 48px;
+}
+
+.value-item {
+border-top: 1px solid rgba(255,255,255,0.1);
+padding-top: 16px;
+}
+
+.value-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 18px;
+font-weight: 400;
+color: var(–white);
+margin-bottom: 8px;
+}
+
+.value-desc {
+font-size: 12px;
+font-weight: 300;
+line-height: 1.7;
+color: rgba(255,255,255,0.45);
+}
+
+/* ── GALLERY ── */
+#gallery {
+padding: 120px 60px;
+background: var(–off-white);
+}
+
+.gallery-grid {
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+grid-template-rows: repeat(2, 280px);
+gap: 8px;
+margin-top: 60px;
+}
+
+.gallery-item {
+background: var(–light);
+overflow: hidden;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.gallery-item:nth-child(1) { grid-column: span 5; grid-row: span 2; background: #ddd9d2; }
+.gallery-item:nth-child(2) { grid-column: span 4; background: #d4cfc8; }
+.gallery-item:nth-child(3) { grid-column: span 3; background: #ccc7bf; }
+.gallery-item:nth-child(4) { grid-column: span 3; background: #c9c4bc; }
+.gallery-item:nth-child(5) { grid-column: span 4; background: #d0cbc3; }
+
+.gallery-item-label {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 12px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: rgba(0,0,0,0.3);
+}
+
+.gallery-item::after {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: var(–accent);
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.gallery-item:hover::after { opacity: 0.15; }
+
+.gallery-cta {
+text-align: center;
+margin-top: 48px;
+}
+
+/* ── CONTACT ── */
+#contact {
+padding: 120px 60px;
+background: var(–white);
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 100px;
+align-items: start;
+}
+
+.contact-info .section-title { margin-bottom: 32px; }
+
+.contact-info p {
+font-size: 15px;
+font-weight: 300;
+line-height: 1.9;
+color: #666;
+margin-bottom: 48px;
+}
+
+.contact-details {
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+.contact-row {
+display: flex;
+gap: 20px;
+align-items: flex-start;
+padding-bottom: 24px;
+border-bottom: 1px solid var(–light);
+}
+
+.contact-row-label {
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–mid);
+width: 80px;
+flex-shrink: 0;
+padding-top: 2px;
+}
+
+.contact-row-val {
+font-size: 15px;
+font-weight: 300;
+color: var(–dark);
+line-height: 1.6;
+}
+
+.contact-row-val a {
+color: var(–accent);
+text-decoration: none;
+}
+
+/* Form */
+.contact-form {
+display: flex;
+flex-direction: column;
+gap: 0;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+margin-bottom: 24px;
+}
+
+.form-group label {
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–mid);
+margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+font-family: ‘Jost’, sans-serif;
+font-size: 14px;
+font-weight: 300;
+color: var(–dark);
+background: transparent;
+border: none;
+border-bottom: 1px solid var(–light);
+padding: 12px 0;
+outline: none;
+transition: border-color 0.2s;
+appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+border-color: var(–accent);
+}
+
+.form-group textarea { resize: none; height: 100px; }
+
+.form-submit {
+font-family: ‘Jost’, sans-serif;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–white);
+background: var(–dark);
+border: none;
+padding: 18px 48px;
+cursor: pointer;
+margin-top: 16px;
+transition: background 0.25s;
+align-self: flex-start;
+}
+
+.form-submit:hover { background: var(–accent); }
+
+/* ── FOOTER ── */
+footer {
+background: var(–dark);
+padding: 48px 60px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.footer-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 18px;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–white);
+}
+
+.footer-logo span { color: var(–accent); }
+
+.footer-copy {
+font-size: 11px;
+letter-spacing: 0.1em;
+color: rgba(255,255,255,0.3);
+}
+
+.footer-links {
+display: flex;
+gap: 32px;
+list-style: none;
+}
+
+.footer-links a {
+font-size: 11px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.4);
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(–white); }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+nav { padding: 20px 24px; }
+.nav-links { display: none; }
+
+```
+#home { grid-template-columns: 1fr; min-height: auto; }
+.hero-left { padding: 100px 24px 60px; }
+.hero-right { height: 300px; }
+.hero-stats { flex-wrap: wrap; gap: 24px; }
+
+#services { padding: 80px 24px; }
+.services-grid { grid-template-columns: 1fr; }
+.section-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+#about { grid-template-columns: 1fr; padding: 80px 24px; }
+.about-visual { height: 300px; }
+
+#gallery { padding: 80px 24px; }
+.gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+.gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; height: 200px; }
+
+#contact { grid-template-columns: 1fr; padding: 80px 24px; gap: 60px; }
+
+footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+.footer-links { flex-wrap: wrap; justify-content: center; }
+```
+
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#home" class="nav-logo">Bilt<span>well</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Houston, Texas</div>
+    <h1 class="hero-h1">We Build<br><em>Better</em><br>Homes.</h1>
+    <p class="hero-sub">Full-service remodeling and renovation for Houston homeowners who want quality craftsmanship, honest pricing, and results that last.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#gallery" class="btn-ghost">See Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Licensed & Insured</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="hero-placeholder">
+        <p>Add Your Project Photo Here</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Full-Service<br><em>Renovation</em></h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-name">Kitchen Remodeling</div>
+      <p class="service-desc">Complete kitchen transformations — from layout redesign and cabinetry to countertops, tile, and fixtures. We handle everything start to finish.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <div class="service-name">Bathroom Renovation</div>
+      <p class="service-desc">Master baths, guest baths, powder rooms. Custom tile work, vanity installs, walk-in showers, and full gut renovations.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div class="service-name">Flooring</div>
+      <p class="service-desc">LVP, hardwood, tile, and more. Expert installation with attention to subfloor prep, transitions, and long-term durability.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">04</div>
+      <div class="service-name">Interior Painting</div>
+      <p class="service-desc">Clean lines, proper prep, and finishes that actually last. We treat your home like our own.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">05</div>
+      <div class="service-name">House Flipping</div>
+      <p class="service-desc">We partner with investors on full property renovations — from acquisition strategy to finished product, ready to list.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">06</div>
+      <div class="service-name">General Contracting</div>
+      <p class="service-desc">Additions, room conversions, structural repairs, and full home renovations. One point of contact. No stress.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="about-visual fade-up">
+    <div class="about-visual-inner">
+      <p>Add Team / Project Photo</p>
+    </div>
+    <div class="about-badge">
+      <div class="about-badge-num">A+</div>
+      <div class="about-badge-text">Rated</div>
+    </div>
+  </div>
+  <div class="about-content fade-up">
+    <div class="section-eyebrow">Our Story</div>
+    <h2 class="section-title">A Family<br><em>Business</em><br>Built Different.</h2>
+    <p>Biltwell Home Improvement Group is a Houston-based, family-owned renovation company. We started because we believed homeowners deserved a contractor they could actually trust — one that shows up, communicates clearly, and delivers quality work every time.</p>
+    <p>We're not a big faceless company. Every project gets our personal attention, and we don't cut corners. That's the Biltwell standard.</p>
+    <div class="about-values">
+      <div class="value-item">
+        <div class="value-title">Honest Pricing</div>
+        <div class="value-desc">Transparent quotes. No surprises. Ever.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Quality Craftsmanship</div>
+        <div class="value-desc">We build it right the first time.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">On-Time Delivery</div>
+        <div class="value-desc">We respect your time and your home.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-title">Licensed & Insured</div>
+        <div class="value-desc">Full coverage. Full peace of mind.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+  <div class="section-header fade-up">
+    <div>
+      <div class="section-eyebrow">Recent Projects</div>
+      <h2 class="section-title">Our<br><em>Work</em></h2>
+    </div>
+  </div>
+  <div class="gallery-grid fade-up">
+    <div class="gallery-item"><span class="gallery-item-label">Master Bath</span></div>
+    <div class="gallery-item"><span class="gallery-item-label">Kitchen</span></div>
+    <div class="gallery-item"><span class="gallery-item-label">Flooring</span></div>
+    <div class="gallery-item"><span class="gallery-item-label">Guest Bath</span></div>
+    <div class="gallery-item"><span class="gallery-item-label">Full Renovation</span></div>
+  </div>
+  <div class="gallery-cta fade-up">
+    <p style="font-size:13px; color:var(--mid); margin-bottom: 20px; letter-spacing: 0.05em;">Follow our work on Instagram &amp; TikTok <strong style="color:var(--dark)">@madeinliving</strong></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="contact-info fade-up">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's Talk<br>About Your<br><em>Project.</em></h2>
+    <p>Whether you're ready to start or just exploring ideas, we'd love to hear about your project. We offer free consultations and honest estimates — no pressure, no obligation.</p>
+    <div class="contact-details">
+      <div class="contact-row">
+        <div class="contact-row-label">Location</div>
+        <div class="contact-row-val">Houston, Texas<br>& Surrounding Areas</div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-label">Phone</div>
+        <div class="contact-row-val"><a href="tel:+17135550000">(713) 555-0000</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-label">Email</div>
+        <div class="contact-row-val"><a href="mailto:info@biltwellgroup.com">info@biltwellgroup.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-row-label">Hours</div>
+        <div class="contact-row-val">Mon – Sat: 8am – 6pm</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form fade-up">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" placeholder="Your name">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(713) 000-0000">
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label>Service Needed</label>
+      <select>
+        <option value="" disabled selected>Select a service</option>
+        <option>Kitchen Remodeling</option>
+        <option>Bathroom Renovation</option>
+        <option>Flooring</option>
+        <option>Interior Painting</option>
+        <option>House Flip / Full Renovation</option>
+        <option>General Contracting</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tell Us About Your Project</label>
+      <textarea placeholder="Describe your project, timeline, and any questions you have…"></textarea>
+    </div>
+    <button class="form-submit">Send Message</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-logo">Bilt<span>well</span></div>
+  <div class="footer-copy">© 2025 Biltwell Home Improvement Group LLC · Houston, TX</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Nav background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
